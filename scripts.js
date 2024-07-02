@@ -1,6 +1,6 @@
 // Add any JavaScript functionality here if needed
 document.addEventListener("DOMContentLoaded", function() {
-    // Example: Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll("nav a");
 
     navLinks.forEach(link => {
@@ -10,9 +10,15 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetElement = document.getElementById(targetId);
 
             window.scrollTo({
-                top: targetElement.offsetTop,
+                top: targetElement.offsetTop - 60,
                 behavior: "smooth"
             });
         });
     });
-});
+
+    // Intersection Observer for section animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible
